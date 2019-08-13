@@ -1,0 +1,232 @@
+/* 强制文本单行显示并将溢出文本以省略号显示 */
+
+.a {
+    /* 强制文本不换行 */
+    white-space: nowrap;
+    /* 溢出文本以省略号显示 */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/*
+text-overflow: clip | ellipsis | ellipsis-word  三个属性值：
+clip:表示直接裁剪溢出的文本，不会显示省略号，直接截断。
+ellipsis:文本溢出，显示省略号（。。。）标记，省略标记代替最后一个字符。
+ellipsis-word:同ellipsis相同，不同在于省略标记代替最后一个词。
+*/
+/* 强制文本多行显示并将溢出文本以省略号显示 */
+
+.b {
+    /* //对象作为弹性伸缩盒子模型显示 。 */
+    display: -webkit-box;
+    /* //限制在一个块元素显示的文本的行数。  */
+    -webkit-box-clamp: 2;
+    /* ;//设置框内子元素的排列方式。水平或者垂直 horizontal | vertical;*/
+    -webkit-box-orient: horizontal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+/* css强制换行 */
+.c {
+    word-break: break-all;
+    /*支持IE，chrome，Firefox不支持*/
+    word-wrap: break-word;
+    /*支持IE，chrome，Firefox*/
+}
+
+/*字符间距*/
+
+.d {
+    letter-sapcing: 2px;
+    /*设置每个字符之间的间距*/
+}
+
+/* 设置段落首行缩进 */
+
+.e {
+    text-indent: 2em;
+    /*首行缩进两个字符*/
+}
+
+/*颜色透明度设置问题*/
+
+.f {
+    background: #012356;
+    /*颜色设置*/
+    opacity: 0.8;
+    /*透明度设置*/
+    /*该方法设置的透明度会导致整个框内元素都继承了该透明度属性，若要针对某一个元素的属性设置透明度，如背景设置透明度，则建议采用*/
+    background: rgba(255, 255, 255, 0.8)
+        /*针对背景颜色单独设置透明度，但是IE8不识别。*/
+}
+
+/* input，textarea相关常用css样式 */
+
+.g {
+    overflow: hidden;
+    /*隐藏滚动条*/
+    resize: none;
+    /*禁止拖拽修改textarea大小*/
+}
+
+/* input的样式属性 */
+.h {
+    background: transparent;
+    /*背景透明*/
+    outline: medium;
+    /*输入框点击时去掉外框*/
+}
+
+
+/* 背景渐变 */
+.i {
+    /* //css3 */
+    background: -webkit-linear-gradient(top, #FFF, #cb1919);
+    background: -o-linear-gradient(top, #FFF, #cb1919);
+    background: -ms-linear-gradient(top, #FFF, #cb1919);
+    background: -moz-linear-gradient(top, #FFF, #cb1919);
+    background: linear-gradient(top, #FFF, #cb1919);
+    /* //参数含义：起始位置，起始颜色，终止颜色 */
+
+    /* //IE浏览器实现渐变只能使用IE自己的滤镜去实现 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=＃00ffff, endColorstr=＃9fffff, grandientType=1);
+    /* //grandientType : 0代表竖向渐变，1代表横向渐变 */
+
+}
+
+/* 文字渐变 */
+
+
+.j {
+
+    display: inline-block;
+    color: green;
+    font-size: 24px;
+    font-family: '微软雅黑';
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(0, 128, 0, 1)), to(rgba(51, 51, 51, 1)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.k:before{
+    
+        background: url(http://csssecrets.io/images/tiger.jpg) no-repeat;  /*或变成背景颜色*/
+        background-size: cover;  
+        width: 500px;  
+        height: 300px;  
+        content: "";  
+        position: absolute;  
+        top: 0;  
+        left: 0;  
+        z-index: -1;/*-1 可以当背景*/  
+        -webkit-filter: blur(3px);  
+        filter: blur(3px);  
+    
+}
+
+
+/* 给 body 添加行高
+
+你不需要分别添加 line-height 到每个p,h标记等。只要添加到 body 即可,这样文本元素就可以很容易地从 body 继承。 */
+
+body { line-height: 1;}
+
+
+
+/* CSS首字放大 */
+
+p:first-letter {
+
+display: block;
+
+float: left;
+
+margin: 5px 5px 0 0;
+
+color: red;
+
+font-size: 1.4em;
+
+background: #ddd;
+
+font-family: Helvetica;
+
+}
+
+/* .用图片充当列表标志 */
+
+ul {list-style: none}
+
+ul li {
+
+background-image: url("填入图片地址");
+
+background-repeat: none;
+
+background-position: 0 0.5em;
+
+}
+
+
+/* 获得焦点的表单元素 */
+
+input:focus { border: 2px solid green; }
+
+
+/* user-select 禁止用户选中文本 */
+
+div {
+
+user-select: none; /* Standard syntax */
+
+}
+
+
+
+/* 清除手机tap事件后element 时候出现的一个高亮 */
+
+* {
+
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+}
+
+
+
+/* CSS3：全屏背景 */
+
+html { 
+    background: url('images/bg.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+/* HTML中input和button解决等高不对齐的解决方案 */
+input,button{
+    width: 100px;
+    height: 100px;/*等高*/
+    border:none;/*边框为none*/
+}
+
+
+
+/
+
+
+/* DIV盒子水平垂直居中*/
+element{
+	width:200px;
+  height:200px;
+ background-color: #00FF00;
+  position: absolute;
+  left: 50%;
+  top:50%;
+  margin-top: -100px;//这里的top值等于它本身高的1/2；
+  margin-left: -100px;//这里的left值等于它本身宽的1/2；
+}
