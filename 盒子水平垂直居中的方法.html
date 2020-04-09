@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    /* 方案一：
+
+div绝对定位水平垂直居中【margin:auto实现绝对定位元素的居中】，
+
+兼容性：,IE7及之前版本不支持 */
+    /* 
+    div {
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background: skyblue;
+        color: wheat;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+
+    } */
+
+    /* 方案二：
+
+div绝对定位水平垂直居中【margin 负间距】     这或许是当前最流行的使用方法。 */
+
+    /* div {
+        width: 200px;
+        height: 200px;
+        background: green;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -100px;
+        margin-top: -100px;
+
+    } */
+
+    /* 方案三：
+
+ 
+
+div绝对定位水平垂直居中【Transforms 变形】
+
+兼容性：IE8不支持； */
+
+    /* div {
+        width: 200px;
+        height: 200px;
+        background: green;
+        position: absolute;
+        left: 50%;
+        /* 定位父级的50% */
+    /* top: 50%;
+        transform: translate(-50%, -50%);
+        /*自己的50% */
+
+    /* } */
+
+    /* 方案四：
+
+css不定宽高水平垂直居中 ，即父元素的宽或高不确定的时候*/
+
+    .box {
+
+        height: 600px;
+        background: rebeccapurple;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* aa只要三句话就可以实现不定宽高水平垂直居中。 */
+
+    }
+
+    .box>.boxSun {
+
+        background: green;
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="boxSun">456</div>
+    </div>
+
+</body>
+
+</html>
